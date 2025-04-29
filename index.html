@@ -138,20 +138,24 @@
         }
         
         .profile-pic {
-            background-color: #ddd;
             padding-top: 100%;
             border-radius: 10px;
             position: relative;
             overflow: hidden;
         }
         
-        .profile-pic::before {
-            content: "Profile Photo";
+        .profile-pic img {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #888;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        
+        .profile-pic::before {
+            display: none;
         }
         
         .about-text h3 {
@@ -318,7 +322,9 @@
             <h2 class="section-title">About Me</h2>
             
             <div class="about-content">
-                <div class="profile-pic"></div>
+                <div class="profile-pic">
+                    <img src="headshot.jpg" alt="Jonathan Dukes Profile Photo">
+                </div>
                 <div class="about-text">
                     <h3>Ocean Engineering Student</h3>
                     <p>I am an Ocean Engineering student at Texas A&M University with experience in offshore construction, data analytics, and civil engineering. My skills include AutoCAD, SCADA data visualization, and pipeline mapping. As an Eagle Scout with leadership experience, I bring a strong work ethic and technical skills to all projects.</p>
