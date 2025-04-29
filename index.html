@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonathan Dukes - Ocean Engineering Professional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0a3d62;
+            --secondary-color: #60a3bc;
+            --accent-color: #fa983a;
+            --text-color: #333;
+            --light-bg: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-align: center;
+            padding: 4rem 1rem;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .header-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: #e67e22;
+            transform: translateY(-2px);
+        }
+        
+        section {
+            padding: 4rem 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .profile-pic {
+            background-color: #ddd;
+            padding-top: 100%;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .profile-pic::before {
+            content: "Profile Photo";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #888;
+        }
+        
+        .about-text h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .experience-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .experience-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .experience-card h4 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-card .date {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 1rem;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--light-bg);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .education-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        .education-card {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+        
+        .edu-logo {
+            background-color: #ddd;
+            width: 100%;
+            padding-top: 100%;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .edu-logo::before {
+            content: "Logo";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #888;
+        }
+        
+        .edu-details h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .edu-details .date {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 0.7rem;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+        
+        footer p {
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .education-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .edu-logo {
+                width: 30%;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <h1>Jonathan Dukes</h1>
+            <p>Ocean Engineering Professional</p>
+            
+            <div class="contact-info">
+                <p><i class="fas fa-map-marker-alt"></i> Magnolia, TX</p>
+                <p><i class="fas fa-phone"></i> (281) 908-2042</p>
+                <p><i class="fas fa-envelope"></i> JSDukes21@tamu.edu</p>
+            </div>
+            
+            <a href="https://www.linkedin.com/in/your-linkedin" class="cta-button" target="_blank">View LinkedIn Profile</a>
+            
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/your-linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fas fa-file-alt"></i></a>
+            </div>
+        </div>
+    </header>
+    
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            
+            <div class="about-content">
+                <div class="profile-pic"></div>
+                <div class="about-text">
+                    <h3>Ocean Engineering Student</h3>
+                    <p>I am an Ocean Engineering student at Texas A&M University with experience in offshore construction, data analytics, and civil engineering. My skills include AutoCAD, SCADA data visualization, and pipeline mapping. As an Eagle Scout with leadership experience, I bring a strong work ethic and technical skills to all projects.</p>
+                    
+                    <div class="skills">
+                        <span class="skill-tag">Offshore Structures</span>
+                        <span class="skill-tag">Hydromechanics</span>
+                        <span class="skill-tag">AutoCAD</span>
+                        <span class="skill-tag">Pipeline Mapping</span>
+                        <span class="skill-tag">SCADA Data</span>
+                        <span class="skill-tag">Leadership</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <h3>White Fleet Operating</h3>
+                    <h4>Offshore Construction Intern (Hybrid)</h4>
+                    <p class="date">August 2024 - December 2024</p>
+                    <p>Worked with construction engineers to update pipeline maps and databases for modifications of offshore platforms and pipelines to facilitate decommissioning projects.</p>
+                </div>
+                
+                <div class="experience-card">
+                    <h3>Arena Energy</h3>
+                    <h4>Data Analytics Intern</h4>
+                    <p class="date">June 2024 - July 2024</p>
+                    <p>Created SCADA data visualizations in Ignition for several fields to monitor pipeline pressures and identify anomalies. Updated Gas Lift Designs and Tubing Details to create visual models integrated with SCADA data.</p>
+                </div>
+                
+                <div class="experience-card">
+                    <h3>Bleyl Engineering</h3>
+                    <h4>Civil Engineering Intern</h4>
+                    <p class="date">May 2023 - August 2023</p>
+                    <p>Became proficient in AutoCAD software to produce civil site drawings. Worked with a team of engineers using various software to perform calculations and develop engineering reports.</p>
+                </div>
+                
+                <div class="experience-card">
+                    <h3>C&C Surveying, Inc.</h3>
+                    <h4>Surveying and Mapping Technician</h4>
+                    <p class="date">June 2022 - August 2022</p>
+                    <p>Operated a variety of instruments such as a GPS, total station, and a level to locate and measure property boundaries. Used different techniques to collect measurements and create topographical maps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="edu-logo"></div>
+                    <div class="edu-details">
+                        <h3>Texas A&M University</h3>
+                        <p>Ocean Engineering Major</p>
+                        <p class="date">August 2021 - May 2026</p>
+                        <p>Overall GPA: 3.4</p>
+                        <p>Relevant Coursework: Offshore Structures, Hydromechanics, Vibrations and Controls, Numerical Methods</p>
+                    </div>
+                </div>
+                
+                <div class="education-card">
+                    <div class="edu-logo"></div>
+                    <div class="edu-details">
+                        <h3>Strake Jesuit College Preparatory</h3>
+                        <p>High School Diploma</p>
+                        <p class="date">Graduated May 2021</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="leadership">
+        <div class="container">
+            <h2 class="section-title">Leadership & Involvement</h2>
+            
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <h3>Kappa Sigma Fraternity</h3>
+                    <p class="date">August 2021 - Present</p>
+                    <p>Volunteer for community and charity events including Wicked Woods and The Big Event. Planned and facilitated fraternity recruitment events.</p>
+                </div>
+                
+                <div class="experience-card">
+                    <h3>Boy Scouts of America</h3>
+                    <h4>Eagle Scout</h4>
+                    <p class="date">November 2014 - August 2020</p>
+                    <p>Held various leadership positions such as Patrol Leader for 2 terms, Historian for 2 terms, First Class Emphasis Leader, and Crew Leader for Philmont Scout Ranch High Adventure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="honors">
+        <div class="container">
+            <h2 class="section-title">Honors & Interests</h2>
+            
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <h3>Honors</h3>
+                    <p>Eagle Scout, Triple Crown Award, National Honor Society</p>
+                </div>
+                
+                <div class="experience-card">
+                    <h3>Interests</h3>
+                    <p>Fishing, Hunting, Weightlifting, Downhill Snow Skiing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>© 2025 Jonathan Dukes. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/your-linkedin" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" target="_blank"><i class="fas fa-file-alt"></i></a>
+            </div>
+            <p>Download my <a href="resume.pdf" style="color: white; text-decoration: underline;">resume</a></p>
+        </div>
+    </footer>
+</body>
+</html>
