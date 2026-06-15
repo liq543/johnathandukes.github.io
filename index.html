@@ -3,469 +3,940 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jonathan Dukes - Ocean Engineering Professional</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Jonathan Dukes — Ocean Engineering &amp; Offshore Operations</title>
+    <meta name="description" content="Jonathan Dukes — final-year Ocean Engineering student at Texas A&amp;M specializing in offshore oil &amp; gas systems, pipeline mapping, and SCADA data analytics.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='14'%20fill='%230a3d62'/%3E%3Ctext%20x='32'%20y='44'%20font-family='Arial,sans-serif'%20font-size='32'%20font-weight='bold'%20fill='%23ffffff'%20text-anchor='middle'%3EJD%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
-            --primary-color: #0a3d62;
-            --secondary-color: #60a3bc;
-            --accent-color: #fa983a;
-            --text-color: #333;
-            --light-bg: #f8f9fa;
+            --ink: #0b2233;
+            --navy-deep: #062338;
+            --navy: #0a3d62;
+            --ocean: #1b6ca8;
+            --sky: #60a3bc;
+            --seafoam: #8fd9d4;
+            --accent: #f2994a;
+            --accent-deep: #e07a28;
+            --paper: #ffffff;
+            --mist: #f5f8fb;
+            --mist-2: #eef3f8;
+            --muted: #5c7081;
+            --line: #e3eaf1;
+            --shadow-sm: 0 2px 8px rgba(10, 61, 98, 0.06);
+            --shadow-md: 0 14px 34px rgba(10, 61, 98, 0.10);
+            --shadow-lg: 0 26px 60px rgba(6, 35, 56, 0.16);
+            --radius: 16px;
+            --maxw: 1140px;
         }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            color: var(--text-color);
-            line-height: 1.6;
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+            color: var(--ink);
+            background: var(--paper);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
-        
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            text-align: center;
-            padding: 4rem 1rem;
+
+        h1, h2, h3, h4, .brand-text { font-family: 'Sora', 'Segoe UI', sans-serif; }
+
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
+
+        .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+        section { scroll-margin-top: 76px; }
+
+        /* ---------- Buttons ---------- */
+        .btn {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            padding: 0.85rem 1.6rem; border-radius: 11px;
+            font-weight: 600; font-size: 0.98rem; cursor: pointer;
+            border: 1px solid transparent; transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+            white-space: nowrap;
         }
-        
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 2rem;
+        .btn-accent { background: var(--accent); color: #fff; box-shadow: 0 10px 22px rgba(224, 122, 40, 0.28); }
+        .btn-accent:hover { background: var(--accent-deep); transform: translateY(-3px); box-shadow: 0 16px 28px rgba(224, 122, 40, 0.34); }
+        .btn-ghost { background: rgba(255,255,255,0.06); color: #fff; border-color: rgba(255,255,255,0.45); }
+        .btn-ghost:hover { background: #fff; color: var(--navy); border-color: #fff; transform: translateY(-3px); }
+        .btn-line { background: transparent; color: var(--navy); border-color: var(--line); }
+        .btn-line:hover { border-color: var(--ocean); color: var(--ocean); transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+
+        /* ---------- Navbar ---------- */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: transparent; transition: background .35s ease, box-shadow .35s ease, border-color .35s ease;
+            border-bottom: 1px solid transparent;
         }
-        
-        .header-content h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .nav.scrolled {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: saturate(180%) blur(14px);
+            -webkit-backdrop-filter: saturate(180%) blur(14px);
+            box-shadow: 0 6px 24px rgba(10, 61, 98, 0.07);
+            border-bottom: 1px solid var(--line);
         }
-        
-        .header-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+        .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .brand { display: flex; align-items: center; gap: 0.7rem; font-weight: 700; }
+        .brand-badge {
+            width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
+            background: linear-gradient(145deg, var(--navy), var(--ocean));
+            color: #fff; display: grid; place-items: center;
+            font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.95rem;
+            box-shadow: 0 6px 14px rgba(10, 61, 98, 0.25);
         }
-        
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
+        .brand-text { color: #fff; font-size: 1.05rem; transition: color .35s ease; letter-spacing: -0.01em; }
+        .nav.scrolled .brand-text { color: var(--ink); }
+
+        .nav-links { display: flex; align-items: center; gap: 0.35rem; }
+        .nav-links a {
+            position: relative; padding: 0.5rem 0.9rem; border-radius: 8px;
+            font-size: 0.94rem; font-weight: 500; color: rgba(255,255,255,0.92);
+            transition: color .25s ease, background .25s ease;
         }
-        
-        .contact-info p {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+        .nav.scrolled .nav-links a { color: var(--muted); }
+        .nav-links a:hover { color: #fff; }
+        .nav.scrolled .nav-links a:hover { color: var(--navy); background: var(--mist-2); }
+        .nav-links a.active { color: #fff; }
+        .nav.scrolled .nav-links a.active { color: var(--ocean); }
+        .nav-links a:not(.nav-cta).active::after {
+            content: ''; position: absolute; left: 0.9rem; right: 0.9rem; bottom: 2px; height: 2px;
+            background: var(--accent); border-radius: 2px;
         }
-        
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
+        .nav-cta {
+            margin-left: 0.6rem; background: var(--accent); color: #fff !important;
+            padding: 0.55rem 1.15rem !important; border-radius: 9px;
+            box-shadow: 0 8px 18px rgba(224,122,40,0.3); transition: transform .25s ease, background .25s ease;
         }
-        
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: white;
-            border-radius: 50%;
-            text-decoration: none;
-            transition: all 0.3s ease;
+        .nav-cta:hover { background: var(--accent-deep); transform: translateY(-2px); }
+        .nav-cta.active::after { display: none; }
+        .nav-toggle {
+            display: none; align-items: center; justify-content: center;
+            width: 42px; height: 42px; border-radius: 10px; border: none; padding: 0; line-height: 1;
+            background: rgba(255,255,255,0.16); color: #fff; font-size: 1.1rem; cursor: pointer;
+            transition: background .3s ease, color .3s ease;
         }
-        
-        .social-links a:hover {
-            background-color: white;
-            color: var(--primary-color);
-            transform: translateY(-3px);
+        .nav.scrolled .nav-toggle { background: var(--mist-2); color: var(--navy); }
+
+        /* ---------- Hero ---------- */
+        .hero {
+            position: relative; color: #fff; overflow: hidden;
+            padding: 9.5rem 0 9rem;
+            background:
+                radial-gradient(1100px 520px at 82% -8%, rgba(143, 217, 212, 0.20), transparent 60%),
+                radial-gradient(900px 520px at 6% 18%, rgba(96, 163, 188, 0.22), transparent 55%),
+                linear-gradient(155deg, var(--navy-deep) 0%, var(--navy) 48%, var(--ocean) 110%);
         }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 0.8rem 2rem;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: 600;
-            transition: all 0.3s ease;
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background-image:
+                radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 26px 26px; opacity: 0.5; pointer-events: none;
         }
-        
-        .cta-button:hover {
-            background-color: #e67e22;
-            transform: translateY(-2px);
+        .hero-grid {
+            position: relative; z-index: 2;
+            display: grid; grid-template-columns: 1.25fr 0.85fr; gap: 3.5rem; align-items: center;
         }
-        
-        section {
-            padding: 4rem 0;
+        .eyebrow {
+            display: inline-flex; align-items: center; gap: 0.6rem;
+            font-size: 0.8rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--seafoam); margin-bottom: 1.3rem;
         }
-        
-        section:nth-child(even) {
-            background-color: var(--light-bg);
+        .eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--accent); border-radius: 2px; }
+        .avail {
+            display: inline-flex; align-items: center; gap: 0.55rem; margin-bottom: 1.4rem;
+            padding: 0.45rem 0.95rem; border-radius: 999px; font-size: 0.83rem; font-weight: 600;
+            color: #dffaf7; background: rgba(143, 217, 212, 0.13); border: 1px solid rgba(143, 217, 212, 0.4);
+            backdrop-filter: blur(4px);
         }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
+        .avail .dot { width: 9px; height: 9px; border-radius: 50%; background: #34d399; box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.6); animation: pulse 2.2s infinite; }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55); }
+            70% { box-shadow: 0 0 0 9px rgba(52, 211, 153, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
         }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 3px;
-            background-color: var(--accent-color);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
+        .hero h1 {
+            font-size: clamp(2.7rem, 6vw, 4.3rem); font-weight: 800; line-height: 1.04;
+            letter-spacing: -0.025em; margin-bottom: 0.9rem;
         }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
+        .hero-role {
+            font-family: 'Sora', sans-serif; font-size: clamp(1.1rem, 2.4vw, 1.45rem);
+            font-weight: 500; color: #dcebf3; margin-bottom: 1.4rem;
         }
-        
-        .profile-pic {
-            padding-top: 100%;
-            border-radius: 10px;
-            position: relative;
-            overflow: hidden;
+        .hero-role .hl { color: var(--accent); font-weight: 600; }
+        .hero-intro { font-size: 1.08rem; color: rgba(255,255,255,0.82); max-width: 33rem; margin-bottom: 2rem; }
+        .hero-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-bottom: 2.6rem; }
+        .hero-socials { display: flex; gap: 0.7rem; }
+        .hero-socials a {
+            width: 44px; height: 44px; border-radius: 11px; display: grid; place-items: center;
+            background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.18);
+            color: #fff; font-size: 1.05rem; transition: all .25s ease;
         }
-        
-        .profile-pic img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 10px;
+        .hero-socials a:hover { background: #fff; color: var(--navy); transform: translateY(-3px); border-color: #fff; }
+
+        /* hero photo */
+        .hero-photo { position: relative; justify-self: center; width: 100%; max-width: 340px; }
+        .hero-photo .ring {
+            position: absolute; inset: -18px -18px auto auto; width: 150px; height: 150px;
+            border: 2px dashed rgba(143, 217, 212, 0.5); border-radius: 50%; z-index: 1;
         }
-        
-        .profile-pic::before {
-            display: none;
+        .hero-photo .blob {
+            position: absolute; inset: auto auto -22px -22px; width: 120px; height: 120px; border-radius: 26px;
+            background: linear-gradient(145deg, var(--accent), var(--accent-deep)); opacity: 0.85; z-index: 1;
         }
-        
-        .about-text h3 {
-            margin-bottom: 1rem;
-            color: var(--primary-color);
+        .photo-frame {
+            position: relative; z-index: 2; border-radius: 22px; overflow: hidden;
+            border: 5px solid rgba(255,255,255,0.12); box-shadow: var(--shadow-lg);
+            aspect-ratio: 4 / 5; background: var(--navy-deep);
         }
-        
-        .experience-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+        .photo-tag {
+            position: absolute; z-index: 3; left: 50%; transform: translateX(-50%); bottom: -20px;
+            background: #fff; color: var(--navy); border-radius: 12px; padding: 0.55rem 1.1rem;
+            font-size: 0.85rem; font-weight: 600; box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 0.5rem;
+            white-space: nowrap;
         }
-        
-        .experience-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+        .photo-tag i { color: var(--accent); }
+
+        /* hero stats */
+        .hero-stats {
+            position: relative; z-index: 2; margin-top: 4.2rem;
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.14); padding-top: 2.2rem;
         }
-        
-        .experience-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        .hero-stat .num { font-family: 'Sora', sans-serif; font-size: 2rem; font-weight: 700; color: #fff; line-height: 1; }
+        .hero-stat .num span { color: var(--accent); }
+        .hero-stat .lbl { font-size: 0.85rem; color: rgba(255,255,255,0.72); margin-top: 0.4rem; }
+
+        /* wave divider */
+        .hero-wave { position: absolute; left: 0; right: 0; bottom: -1px; z-index: 1; line-height: 0; }
+        .hero-wave svg { width: 100%; height: 110px; display: block; }
+
+        /* ---------- Sections ---------- */
+        .section { padding: clamp(4.5rem, 8vw, 7rem) 0; }
+        .section.alt { background: var(--mist); }
+        .section-head { max-width: 720px; margin-bottom: 3.2rem; }
+        .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+        .section-head .eyebrow { color: var(--ocean); }
+        .section-head.center .eyebrow { justify-content: center; }
+        .section-title { font-size: clamp(1.9rem, 4vw, 2.7rem); font-weight: 700; letter-spacing: -0.02em; color: var(--ink); line-height: 1.15; }
+        .section-sub { color: var(--muted); margin-top: 1rem; font-size: 1.06rem; }
+
+        /* ---------- About ---------- */
+        .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: start; }
+        .about-text p { color: var(--muted); margin-bottom: 1.1rem; font-size: 1.07rem; }
+        .about-text p strong { color: var(--ink); font-weight: 600; }
+        .about-involve { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.6rem; }
+        .pill {
+            display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.4rem 0.95rem;
+            border-radius: 999px; background: var(--mist-2); color: var(--navy);
+            font-size: 0.88rem; font-weight: 500; border: 1px solid var(--line);
         }
-        
-        .experience-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
+        .pill i { color: var(--ocean); font-size: 0.8rem; }
+
+        .facts {
+            background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 1.9rem; box-shadow: var(--shadow-md); position: relative; overflow: hidden;
         }
-        
-        .experience-card h4 {
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
+        .facts::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--ocean), var(--seafoam)); }
+        .facts h3 { font-size: 1.15rem; margin-bottom: 1.3rem; color: var(--ink); }
+        .fact-row { display: flex; align-items: flex-start; gap: 0.9rem; padding: 0.8rem 0; border-bottom: 1px solid var(--line); }
+        .fact-row:last-child { border-bottom: 0; padding-bottom: 0; }
+        .fact-row .ic { width: 38px; height: 38px; border-radius: 10px; background: var(--mist); color: var(--ocean); display: grid; place-items: center; flex-shrink: 0; font-size: 0.95rem; }
+        .fact-row .lbl { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+        .fact-row .val { font-weight: 600; color: var(--ink); font-size: 0.98rem; }
+
+        /* ---------- Timeline (Experience) ---------- */
+        .timeline { position: relative; max-width: 880px; }
+        .timeline::before { content: ''; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 2px; background: linear-gradient(var(--ocean), var(--line)); }
+        .t-item { position: relative; padding-left: 3.2rem; padding-bottom: 2.4rem; }
+        .t-item:last-child { padding-bottom: 0; }
+        .t-marker {
+            position: absolute; left: 3px; top: 6px; width: 18px; height: 18px; border-radius: 50%;
+            background: #fff; border: 3px solid var(--ocean); box-shadow: 0 0 0 5px rgba(27, 108, 168, 0.10); z-index: 2;
         }
-        
-        .experience-card .date {
-            font-size: 0.9rem;
-            color: #777;
-            margin-bottom: 1rem;
+        .t-item.current .t-marker { border-color: var(--accent); background: var(--accent); box-shadow: 0 0 0 5px rgba(242, 153, 74, 0.18); }
+        .t-card {
+            background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
+            padding: 1.5rem 1.7rem; box-shadow: var(--shadow-sm); transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
         }
-        
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2rem;
+        .t-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: #d4e0ec; }
+        .t-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; flex-wrap: wrap; }
+        .t-card h3 { font-size: 1.2rem; color: var(--ink); display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; }
+        .t-role { color: var(--ocean); font-weight: 600; font-size: 1rem; margin-top: 0.15rem; }
+        .t-date { font-size: 0.84rem; font-weight: 600; color: var(--muted); background: var(--mist); padding: 0.35rem 0.8rem; border-radius: 999px; white-space: nowrap; }
+        .badge-now { font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #fff; background: var(--accent); padding: 0.2rem 0.6rem; border-radius: 999px; }
+        .t-loc { font-size: 0.88rem; color: var(--muted); margin: 0.55rem 0 0.9rem; display: flex; align-items: center; gap: 0.45rem; }
+        .t-loc i { color: var(--sky); }
+        .t-bullets { list-style: none; display: grid; gap: 0.55rem; }
+        .t-bullets li { position: relative; padding-left: 1.4rem; color: var(--muted); font-size: 0.97rem; }
+        .t-bullets li::before { content: ''; position: absolute; left: 0; top: 0.62rem; width: 7px; height: 7px; border-radius: 2px; background: var(--seafoam); transform: rotate(45deg); }
+
+        /* ---------- Skills ---------- */
+        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; }
+        .skill-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.9rem; box-shadow: var(--shadow-sm); transition: transform .28s ease, box-shadow .28s ease; }
+        .skill-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .skill-card .head { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1.4rem; }
+        .skill-card .head .ic { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; font-size: 1.15rem; color: #fff; flex-shrink: 0; }
+        .skill-card.eng .head .ic { background: linear-gradient(145deg, var(--navy), var(--ocean)); }
+        .skill-card.soft .head .ic { background: linear-gradient(145deg, var(--ocean), var(--seafoam)); }
+        .skill-card .head h3 { font-size: 1.2rem; color: var(--ink); }
+        .skill-card .head p { font-size: 0.85rem; color: var(--muted); }
+        .chips { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+        .chip {
+            display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.95rem;
+            border-radius: 10px; background: var(--mist); border: 1px solid var(--line);
+            font-size: 0.9rem; font-weight: 500; color: var(--ink); transition: all .22s ease;
         }
-        
-        .skill-tag {
-            background-color: var(--light-bg);
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
+        .chip i { color: var(--ocean); font-size: 0.9rem; }
+        .chip:hover { background: var(--navy); color: #fff; border-color: var(--navy); transform: translateY(-2px); }
+        .chip:hover i { color: var(--seafoam); }
+
+        /* ---------- Education ---------- */
+        .edu-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 1.8rem; align-items: stretch; }
+        .edu-card { display: flex; gap: 1.5rem; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.8rem; box-shadow: var(--shadow-sm); transition: transform .28s ease, box-shadow .28s ease; }
+        .edu-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+        .edu-logo { width: 84px; height: 84px; flex-shrink: 0; border-radius: 14px; background: var(--mist); border: 1px solid var(--line); display: grid; place-items: center; padding: 12px; }
+        .edu-logo img { width: 100%; height: 100%; object-fit: contain; }
+        .edu-body h3 { font-size: 1.25rem; color: var(--ink); }
+        .edu-degree { color: var(--ocean); font-weight: 600; margin: 0.15rem 0 0.5rem; }
+        .edu-meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; font-size: 0.88rem; color: var(--muted); margin-bottom: 0.8rem; }
+        .edu-meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+        .edu-meta i { color: var(--sky); }
+        .edu-course { font-size: 0.94rem; color: var(--muted); }
+        .edu-course b { color: var(--ink); font-weight: 600; }
+
+        /* ---------- Leadership ---------- */
+        .lead-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.8rem; }
+        .lead-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.8rem; box-shadow: var(--shadow-sm); transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease; position: relative; overflow: hidden; }
+        .lead-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: #d4e0ec; }
+        .lead-icon { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; font-size: 1.3rem; color: #fff; margin-bottom: 1.2rem; background: linear-gradient(145deg, var(--navy), var(--ocean)); }
+        .lead-card.feature .lead-icon { background: linear-gradient(145deg, var(--accent), var(--accent-deep)); }
+        .lead-card h3 { font-size: 1.18rem; color: var(--ink); }
+        .lead-sub { color: var(--ocean); font-weight: 600; font-size: 0.95rem; margin-top: 0.1rem; }
+        .lead-date { font-size: 0.82rem; color: var(--muted); margin: 0.5rem 0 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; }
+        .lead-card p.desc { color: var(--muted); font-size: 0.96rem; }
+
+        /* ---------- Honors & Interests ---------- */
+        .hi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; }
+        .hi-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.9rem; box-shadow: var(--shadow-sm); }
+        .hi-card .head { display: flex; align-items: center; gap: 0.7rem; margin-bottom: 1.3rem; }
+        .hi-card .head i { color: var(--accent); font-size: 1.2rem; }
+        .hi-card .head h3 { font-size: 1.15rem; color: var(--ink); }
+        .hi-list { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+        .hi-list .chip i { color: var(--accent); }
+
+        /* ---------- Contact ---------- */
+        .contact {
+            position: relative; color: #fff; overflow: hidden;
+            padding: clamp(4.5rem, 8vw, 7rem) 0 0;
+            background:
+                radial-gradient(800px 400px at 85% 0%, rgba(143,217,212,0.18), transparent 60%),
+                linear-gradient(160deg, var(--navy-deep), var(--navy) 70%, var(--ocean));
         }
-        
-        .education-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
+        .contact .section-head .eyebrow { color: var(--seafoam); }
+        .contact .section-title { color: #fff; }
+        .contact .section-sub { color: rgba(255,255,255,0.8); }
+        .contact-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-bottom: 2.6rem; }
+        .contact-card {
+            display: flex; flex-direction: column; gap: 0.5rem; padding: 1.5rem;
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);
+            border-radius: 14px; transition: all .25s ease;
         }
-        
-        .education-card {
-            display: grid;
-            grid-template-columns: 1fr 3fr;
-            gap: 1.5rem;
-            align-items: start;
+        .contact-card:hover { background: rgba(255,255,255,0.12); transform: translateY(-4px); border-color: rgba(255,255,255,0.3); }
+        .contact-card .ic { width: 44px; height: 44px; border-radius: 11px; background: rgba(143,217,212,0.18); color: var(--seafoam); display: grid; place-items: center; font-size: 1.1rem; }
+        .contact-card .lbl { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(255,255,255,0.6); }
+        .contact-card .val { font-weight: 600; font-size: 0.96rem; overflow-wrap: break-word; }
+        .contact-actions { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+
+        footer { position: relative; margin-top: clamp(3.5rem, 6vw, 5rem); border-top: 1px solid rgba(255,255,255,0.14); }
+        .foot-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.8rem 0; flex-wrap: wrap; }
+        .foot-inner p { font-size: 0.9rem; color: rgba(255,255,255,0.7); }
+        .foot-socials { display: flex; gap: 0.6rem; }
+        .foot-socials a { width: 40px; height: 40px; border-radius: 10px; display: grid; place-items: center; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); color: #fff; transition: all .25s ease; }
+        .foot-socials a:hover { background: #fff; color: var(--navy); transform: translateY(-3px); }
+
+        /* ---------- Back to top ---------- */
+        .to-top {
+            position: fixed; right: 22px; bottom: 22px; z-index: 90;
+            width: 48px; height: 48px; border-radius: 50%; border: none; cursor: pointer;
+            background: var(--navy); color: #fff; font-size: 1.05rem; box-shadow: var(--shadow-md);
+            opacity: 0; visibility: hidden; transform: translateY(12px); transition: all .3s ease;
         }
-        
-        .edu-logo {
-            width: 100%;
-            padding-top: 100%;
-            border-radius: 10px;
-            position: relative;
-            overflow: hidden;
+        .to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+        .to-top:hover { background: var(--ocean); transform: translateY(-3px); }
+        .to-top.at-footer { opacity: 0; visibility: hidden; transform: translateY(12px); }
+
+        /* ---------- Reveal animation ---------- */
+        .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+        .reveal.in { opacity: 1; transform: none; }
+
+        /* ---------- Responsive ---------- */
+        @media (max-width: 1080px) {
+            .contact-grid { grid-template-columns: 1fr 1fr; }
         }
-        
-        .edu-logo img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 10px;
+        @media (max-width: 960px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .hero-photo { order: -1; max-width: 270px; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 1.6rem 1rem; }
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .skills-grid, .edu-grid, .hi-grid { grid-template-columns: 1fr; }
+            .lead-grid { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr 1fr; }
         }
-        
-        .edu-logo::before {
-            display: none;
-        }
-        
-        .edu-details h3 {
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-        
-        .edu-details .date {
-            font-size: 0.9rem;
-            color: #777;
-            margin-bottom: 0.7rem;
-        }
-        
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 3rem 0;
-        }
-        
-        footer p {
-            margin-bottom: 1rem;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .about-content {
-                grid-template-columns: 1fr;
+
+        @media (max-width: 860px) {
+            .nav-toggle { display: inline-flex; }
+            .nav-links {
+                position: fixed; top: 64px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0;
+                background: #fff; padding: 0.6rem 0 1rem; border-bottom: 1px solid var(--line);
+                box-shadow: 0 22px 30px rgba(10,61,98,0.10);
+                transform: translateY(-14px); opacity: 0; pointer-events: none; transition: opacity .28s ease, transform .28s ease;
             }
-            
-            .education-card {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .edu-logo {
-                width: 200px;
-                height: 200px;
-                padding-top: 0;
-                margin: 0 auto 1.5rem;
-            }
-            
-            .edu-logo img {
-                border-radius: 10px;
-            }
+            body.nav-open .nav-links { transform: none; opacity: 1; pointer-events: auto; }
+            .nav-links a { color: var(--ink) !important; padding: 0.9rem 24px; border-radius: 0; }
+            .nav-links a:hover { background: var(--mist); }
+            .nav-links a.active { color: var(--ocean) !important; }
+            .nav-links a:not(.nav-cta).active::after { display: none; }
+            .nav-cta { margin: 0.7rem 24px 0; text-align: center; justify-content: center; display: flex; }
+        }
+
+        @media (max-width: 560px) {
+            .hero { padding: 8rem 0 7rem; }
+            .hero-stats { grid-template-columns: 1fr 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .t-top { flex-direction: column; }
+            .edu-card { flex-direction: column; }
+            .foot-inner { flex-direction: column; text-align: center; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            .reveal { opacity: 1; transform: none; transition: none; }
+            * { transition: none !important; animation: none !important; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-            <h1>Jonathan Dukes</h1>
-            <p>Ocean Engineering Professional</p>
-            
-            <div class="contact-info">
-                <p><i class="fas fa-map-marker-alt"></i> Magnolia, TX</p>
-                <p><i class="fas fa-phone"></i> (281) 908-2042</p>
-                <p><i class="fas fa-envelope"></i> JSDukes21@tamu.edu</p>
-            </div>
-            
-            <a href="jd_resume.pdf" class="cta-button" target="_blank">View my resume</a>
-            
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/jonathan-dukes-b2a425220/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="jd_resume.pdf" target="_blank"><i class="fas fa-file-alt"></i></a>
-            </div>
+
+    <!-- ===== NAV ===== -->
+    <header class="nav" id="nav">
+        <div class="nav-inner container">
+            <a class="brand" href="#top" aria-label="Jonathan Dukes home">
+                <span class="brand-badge">JD</span>
+                <span class="brand-text">Jonathan Dukes</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav class="nav-links" id="navLinks">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#leadership">Leadership</a>
+                <a href="#contact">Contact</a>
+                <a class="nav-cta" href="jd_resume.pdf" target="_blank" rel="noopener">Resume</a>
+            </nav>
         </div>
     </header>
-    
-    <section id="about">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="top">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            
-            <div class="about-content">
-                <div class="profile-pic">
-                    <img src="headshot.jpg" alt="Jonathan Dukes Profile Photo">
+            <div class="hero-grid">
+                <div class="hero-text">
+                    <span class="avail"><span class="dot"></span> Available for full-time roles</span>
+                    <h1>Jonathan Dukes</h1>
+                    <p class="hero-role">Offshore Operations &amp; <span class="hl">Ocean Engineering</span></p>
+                    <p class="hero-intro">
+                        Texas A&amp;M Ocean Engineering graduate (Class of 2026) seeking a full-time offshore role —
+                        I turn field data into clear engineering decisions across oil &amp; gas production, pipeline systems, and SCADA analytics.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="jd_resume.pdf" target="_blank" rel="noopener" class="btn btn-accent">
+                            <i class="fa-solid fa-file-arrow-down"></i> View Resume
+                        </a>
+                        <a href="#contact" class="btn btn-ghost">
+                            <i class="fa-solid fa-paper-plane"></i> Get in Touch
+                        </a>
+                    </div>
+                    <div class="hero-socials">
+                        <a href="https://www.linkedin.com/in/jonathan-dukes-b2a425220/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="mailto:JSDukes34@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                        <a href="tel:+12819082042" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+                    </div>
                 </div>
-                <div class="about-text">
-                    <h3>Ocean Engineering Student</h3>
-                    <p>I am an Ocean Engineering student at Texas A&M University with experience in offshore construction, data analytics, and civil engineering. My skills include AutoCAD, SCADA data visualization, and pipeline mapping. As an Eagle Scout with leadership experience, I bring a strong work ethic and technical skills to all projects.</p>
-                    
-                    <div class="skills">
-                        <span class="skill-tag">Offshore Structures</span>
-                        <span class="skill-tag">Hydromechanics</span>
-                        <span class="skill-tag">AutoCAD</span>
-                        <span class="skill-tag">Pipeline Mapping</span>
-                        <span class="skill-tag">SCADA Data</span>
-                        <span class="skill-tag">Leadership</span>
+
+                <div class="hero-photo">
+                    <span class="ring" aria-hidden="true"></span>
+                    <span class="blob" aria-hidden="true"></span>
+                    <div class="photo-frame">
+                        <img src="headshot.jpg" alt="Portrait of Jonathan Dukes">
+                    </div>
+                    <span class="photo-tag"><i class="fa-solid fa-location-dot"></i> Cypress, TX</span>
+                </div>
+            </div>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="num">'<span>26</span></div>
+                    <div class="lbl">Class of 2026</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="num">4</div>
+                    <div class="lbl">Engineering internships</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="num">30<span>+</span></div>
+                    <div class="lbl">Offshore fields analyzed</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="num">Eagle</div>
+                    <div class="lbl">Scout &amp; Triple Crown</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-wave" aria-hidden="true">
+            <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+                <path d="M0,48 C240,96 480,8 720,44 C960,80 1200,16 1440,52 L1440,120 L0,120 Z" fill="rgba(255,255,255,0.16)"></path>
+                <path d="M0,72 C240,110 480,36 720,68 C960,100 1200,44 1440,76 L1440,120 L0,120 Z" fill="#ffffff"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">About Me</span>
+                <h2 class="section-title">Engineering at the edge of land and sea</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <p>
+                        I'm an <strong>Ocean Engineering graduate of Texas A&amp;M University</strong> (B.S., May 2026),
+                        with hands-on experience spanning offshore oil &amp; gas operations, construction support, and data analytics.
+                        I'm now looking for a <strong>full-time role</strong> where messy field data becomes a clear, defensible engineering decision.
+                    </p>
+                    <p>
+                        Across four internships I've built <strong>Ignition/SCADA dashboards</strong>, mapped pipelines and platform
+                        connections, produced <strong>AutoCAD</strong> drawings, and helped coordinate engineering deliverables between
+                        field and office teams. My current focus is offshore production systems and the operational checks that keep
+                        platforms running safely.
+                    </p>
+                    <p>
+                        As an <strong>Eagle Scout</strong> and Triple Crown recipient, I bring a steady work ethic, comfort in the field,
+                        and the leadership habits that come from guiding teams through demanding environments.
+                    </p>
+                    <div class="about-involve">
+                        <span class="pill"><i class="fa-solid fa-users"></i> Society of Petroleum Engineers</span>
+                        <span class="pill"><i class="fa-solid fa-ship"></i> SNAME</span>
+                        <span class="pill"><i class="fa-solid fa-award"></i> Eagle Scout</span>
+                    </div>
+                </div>
+
+                <aside class="facts reveal">
+                    <h3>At a glance</h3>
+                    <div class="fact-row">
+                        <div class="ic"><i class="fa-solid fa-compass-drafting"></i></div>
+                        <div><div class="lbl">Focus</div><div class="val">Offshore Oil &amp; Gas Systems</div></div>
+                    </div>
+                    <div class="fact-row">
+                        <div class="ic"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div><div class="lbl">Degree</div><div class="val">B.S. Ocean Engineering</div></div>
+                    </div>
+                    <div class="fact-row">
+                        <div class="ic"><i class="fa-solid fa-calendar-check"></i></div>
+                        <div><div class="lbl">Graduated</div><div class="val">May 2026 · GPA 3.3</div></div>
+                    </div>
+                    <div class="fact-row">
+                        <div class="ic"><i class="fa-solid fa-location-dot"></i></div>
+                        <div><div class="lbl">Based in</div><div class="val">Cypress, Texas</div></div>
+                    </div>
+                    <div class="fact-row">
+                        <div class="ic"><i class="fa-solid fa-briefcase"></i></div>
+                        <div><div class="lbl">Status</div><div class="val">Open to full-time roles</div></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section class="section alt" id="experience">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Professional Experience</span>
+                <h2 class="section-title">Where I've worked</h2>
+                <p class="section-sub">Four internships across offshore operations, construction, data analytics, and civil engineering.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="t-item current reveal">
+                    <span class="t-marker"></span>
+                    <div class="t-card">
+                        <div class="t-top">
+                            <div>
+                                <h3>Talos Energy <span class="badge-now">Current</span></h3>
+                                <p class="t-role">Offshore Operations Engineering Intern</p>
+                            </div>
+                            <span class="t-date">Jun 2026 – Present</span>
+                        </div>
+                        <p class="t-loc"><i class="fa-solid fa-location-dot"></i> Offshore Gulf of Mexico</p>
+                        <ul class="t-bullets">
+                            <li>Supporting offshore oil &amp; gas production through hands-on exposure to production systems, control room processes, and operational procedures.</li>
+                            <li>Assisting with platform integrity, safety, and environmental checks across the hull, ballast, and production support systems.</li>
+                            <li>Conducting routine field measurements and sample testing to support operations, chemical management, and equipment reliability.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="t-item reveal">
+                    <span class="t-marker"></span>
+                    <div class="t-card">
+                        <div class="t-top">
+                            <div>
+                                <h3>White Fleet Operating</h3>
+                                <p class="t-role">Offshore Construction Intern (Hybrid)</p>
+                            </div>
+                            <span class="t-date">Aug 2024 – Dec 2024</span>
+                        </div>
+                        <p class="t-loc"><i class="fa-solid fa-location-dot"></i> The Woodlands, Texas</p>
+                        <ul class="t-bullets">
+                            <li>Supported offshore construction engineers with pipeline mapping, platform documentation, and project updates for platform and pipeline removal work.</li>
+                            <li>Reviewed pipeline information — line size, route details, and platform connections — to support decommissioning planning and project execution.</li>
+                            <li>Organized engineering deliverables and coordinated technical information between field and office teams.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="t-item reveal">
+                    <span class="t-marker"></span>
+                    <div class="t-card">
+                        <div class="t-top">
+                            <div>
+                                <h3>Arena Energy</h3>
+                                <p class="t-role">Data Analytics Intern</p>
+                            </div>
+                            <span class="t-date">Jun 2024 – Jul 2024</span>
+                        </div>
+                        <p class="t-loc"><i class="fa-solid fa-location-dot"></i> The Woodlands, Texas</p>
+                        <ul class="t-bullets">
+                            <li>Reviewed pipeline routes, platform connections, and field data for 30+ offshore oil &amp; gas fields to support operations review and asset visibility.</li>
+                            <li>Built Ignition/SCADA dashboards for five fields to monitor well performance, pipeline pressures, and operational anomalies.</li>
+                            <li>Created Power BI field maps, Excel summaries, and pressure models to support asset-level review and engineering decision-making.</li>
+                            <li>Updated gas lift, tubing, and production equipment details to strengthen well data quality and technical review.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="t-item reveal">
+                    <span class="t-marker"></span>
+                    <div class="t-card">
+                        <div class="t-top">
+                            <div>
+                                <h3>Bleyl Engineering</h3>
+                                <p class="t-role">Civil Engineering Intern</p>
+                            </div>
+                            <span class="t-date">May 2023 – Aug 2023</span>
+                        </div>
+                        <p class="t-loc"><i class="fa-solid fa-location-dot"></i> Conroe, Texas</p>
+                        <ul class="t-bullets">
+                            <li>Produced AutoCAD drawings and cost estimates for residential and commercial development projects.</li>
+                            <li>Supported projects valued between $1M and $20M through the submittal, review, and approval stages.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <section id="experience">
+
+    <!-- ===== SKILLS ===== -->
+    <section class="section" id="skills">
         <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <h3>White Fleet Operating</h3>
-                    <h4>Offshore Construction Intern (Hybrid)</h4>
-                    <p class="date">August 2024 - December 2024</p>
-                    <p>Worked with construction engineers to update pipeline maps and databases for modifications of offshore platforms and pipelines to facilitate decommissioning projects.</p>
-                </div>
-                
-                <div class="experience-card">
-                    <h3>Arena Energy</h3>
-                    <h4>Data Analytics Intern</h4>
-                    <p class="date">June 2024 - July 2024</p>
-                    <p>Created SCADA data visualizations in Ignition for several fields to monitor pipeline pressures and identify anomalies. Updated Gas Lift Designs and Tubing Details to create visual models integrated with SCADA data.</p>
-                </div>
-                
-                <div class="experience-card">
-                    <h3>Bleyl Engineering</h3>
-                    <h4>Civil Engineering Intern</h4>
-                    <p class="date">May 2023 - August 2023</p>
-                    <p>Became proficient in AutoCAD software to produce civil site drawings. Worked with a team of engineers using various software to perform calculations and develop engineering reports.</p>
-                </div>
-                
-                <div class="experience-card">
-                    <h3>C&C Surveying, Inc.</h3>
-                    <h4>Surveying and Mapping Technician</h4>
-                    <p class="date">June 2022 - August 2022</p>
-                    <p>Operated a variety of instruments such as a GPS, total station, and a level to locate and measure property boundaries. Used different techniques to collect measurements and create topographical maps.</p>
-                </div>
+            <div class="section-head reveal">
+                <span class="eyebrow">Technical Skills</span>
+                <h2 class="section-title">What I work with</h2>
             </div>
-        </div>
-    </section>
-    
-    <section id="education">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            
-            <div class="education-grid">
-                <div class="education-card">
-                    <div class="edu-logo">
-                        <img src="AandM.png" alt="Texas A&M University Logo">
+            <div class="skills-grid">
+                <div class="skill-card eng reveal">
+                    <div class="head">
+                        <div class="ic"><i class="fa-solid fa-gears"></i></div>
+                        <div>
+                            <h3>Engineering</h3>
+                            <p>Offshore &amp; project engineering</p>
+                        </div>
                     </div>
-                    <div class="edu-details">
-                        <h3>Texas A&M University</h3>
-                        <p>Ocean Engineering Major</p>
-                        <p class="date">August 2021 - May 2026</p>
-                        <p>Major GPA: 3.4</p>
-                        <p>Involvement: Society of Petroleum Engineers, Society of Naval Architects and Marine Engineers</p>
-                        <p>Relevant Coursework: Applied Numerical Methods, Hydromechanics, Offshore Structures, Vibrations and Control</p>
+                    <div class="chips">
+                        <span class="chip">Offshore Oil &amp; Gas</span>
+                        <span class="chip">Pipeline Systems</span>
+                        <span class="chip">Platform Documentation</span>
+                        <span class="chip">Project Engineering Support</span>
+                        <span class="chip">Construction Support</span>
+                        <span class="chip">Technical Reporting</span>
+                        <span class="chip">Engineering Data Management</span>
+                        <span class="chip">Deliverable Tracking</span>
+                        <span class="chip">Field-to-Office Coordination</span>
                     </div>
                 </div>
-                
-                <div class="education-card">
-                    <div class="edu-logo">
-                        <img src="StrakeJeb.png" alt="Strake Jesuit College Preparatory Logo">
+
+                <div class="skill-card soft reveal">
+                    <div class="head">
+                        <div class="ic"><i class="fa-solid fa-laptop-code"></i></div>
+                        <div>
+                            <h3>Software &amp; Tools</h3>
+                            <p>Analytics, design &amp; reporting</p>
+                        </div>
                     </div>
-                    <div class="edu-details">
-                        <h3>Strake Jesuit College Preparatory</h3>
-                        <p>High School Diploma</p>
-                        <p class="date">Graduated May 2021</p>
+                    <div class="chips">
+                        <span class="chip"><i class="fa-solid fa-table-cells"></i> Excel</span>
+                        <span class="chip"><i class="fa-solid fa-chart-column"></i> Power BI</span>
+                        <span class="chip"><i class="fa-solid fa-file-powerpoint"></i> PowerPoint</span>
+                        <span class="chip"><i class="fa-solid fa-envelope-open-text"></i> Outlook</span>
+                        <span class="chip"><i class="fa-solid fa-gauge-high"></i> Ignition / SCADA</span>
+                        <span class="chip"><i class="fa-solid fa-square-root-variable"></i> MATLAB</span>
+                        <span class="chip"><i class="fa-brands fa-python"></i> Python</span>
+                        <span class="chip"><i class="fa-solid fa-compass-drafting"></i> AutoCAD</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <section id="leadership">
+
+    <!-- ===== EDUCATION ===== -->
+    <section class="section alt" id="education">
         <div class="container">
-            <h2 class="section-title">Leadership & Involvement</h2>
-            
-            <div class="experience-grid">
-                <div class="experience-card">
+            <div class="section-head reveal">
+                <span class="eyebrow">Education</span>
+                <h2 class="section-title">Academic background</h2>
+            </div>
+            <div class="edu-grid">
+                <div class="edu-card reveal">
+                    <div class="edu-logo"><img src="AandM.png" alt="Texas A&amp;M University logo"></div>
+                    <div class="edu-body">
+                        <h3>Texas A&amp;M University</h3>
+                        <p class="edu-degree">B.S. Ocean Engineering</p>
+                        <div class="edu-meta">
+                            <span><i class="fa-solid fa-calendar"></i> Aug 2021 – May 2026</span>
+                            <span><i class="fa-solid fa-star"></i> GPA 3.3</span>
+                            <span><i class="fa-solid fa-location-dot"></i> College Station, TX</span>
+                        </div>
+                        <p class="edu-course">
+                            <b>Relevant coursework:</b> Offshore Structures, Hydromechanics, Vibrations &amp; Control, Applied Numerical Methods.
+                            <br><b>Involvement:</b> Society of Petroleum Engineers (SPE), Society of Naval Architects &amp; Marine Engineers (SNAME).
+                        </p>
+                    </div>
+                </div>
+
+                <div class="edu-card reveal">
+                    <div class="edu-logo"><img src="StrakeJeb.png" alt="Strake Jesuit College Preparatory logo"></div>
+                    <div class="edu-body">
+                        <h3>Strake Jesuit</h3>
+                        <p class="edu-degree">College Preparatory</p>
+                        <div class="edu-meta">
+                            <span><i class="fa-solid fa-calendar"></i> Graduated 2021</span>
+                            <span><i class="fa-solid fa-location-dot"></i> Houston, TX</span>
+                        </div>
+                        <p class="edu-course">High school diploma · National Honor Society.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LEADERSHIP & PROJECTS ===== -->
+    <section class="section" id="leadership">
+        <div class="container">
+            <div class="section-head reveal">
+                <span class="eyebrow">Projects &amp; Leadership</span>
+                <h2 class="section-title">Beyond the internships</h2>
+            </div>
+            <div class="lead-grid">
+                <div class="lead-card feature reveal">
+                    <div class="lead-icon"><i class="fa-solid fa-atom"></i></div>
                     <h3>Exmar Offshore</h3>
-                    <h4>Senior Capstone Design Project</h4>
-                    <p class="date">August 2025 - Present</p>
-                    <p>Currently working with a team to design an offshore nuclear energy facility capable of generating 150 megawatts of energy.</p>
+                    <p class="lead-sub">Senior Capstone Design Project</p>
+                    <p class="lead-date"><i class="fa-solid fa-calendar"></i> Aug 2025 – May 2026</p>
+                    <p class="desc">
+                        Designing major systems for a floating offshore nuclear power barge — general arrangements, stability, and
+                        ballast — while evaluating structural loading, materials selection, corrosion resistance, and offshore
+                        operating constraints.
+                    </p>
                 </div>
-                
-                <div class="experience-card">
+
+                <div class="lead-card reveal">
+                    <div class="lead-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
                     <h3>Kappa Sigma Fraternity</h3>
-                    <p class="date">August 2021 - Present</p>
-                    <p>Volunteer for community and charity events including Wicked Woods and The Big Event. Planned and facilitated fraternity recruitment events as well as mixers with sororities.</p>
+                    <p class="lead-sub">Member &amp; Volunteer</p>
+                    <p class="lead-date"><i class="fa-solid fa-calendar"></i> Aug 2021 – May 2025</p>
+                    <p class="desc">
+                        Supported community and charity events, including Wicked Woods and The Big Event, and helped plan and
+                        facilitate chapter recruitment and social events.
+                    </p>
                 </div>
-                
-                <div class="experience-card">
+
+                <div class="lead-card reveal">
+                    <div class="lead-icon"><i class="fa-solid fa-medal"></i></div>
                     <h3>Boy Scouts of America</h3>
-                    <h4>Eagle Scout</h4>
-                    <p class="date">November 2014 - August 2020</p>
-                    <p>Held various leadership positions such as Patrol Leader and Crew Leader for Philmont Scout Ranch High Adventure. Led First Class Emphasis, a program leading new scouts through their journey to Eagle Scout.</p>
+                    <p class="lead-sub">Eagle Scout</p>
+                    <p class="lead-date"><i class="fa-solid fa-calendar"></i> Nov 2014 – Aug 2020</p>
+                    <p class="desc">
+                        Held leadership roles including Patrol Leader and Crew Leader for the Philmont Scout Ranch high-adventure
+                        trek, and mentored new scouts through First Class Emphasis.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
-    
-    <section id="honors">
+
+    <!-- ===== HONORS & INTERESTS ===== -->
+    <section class="section alt" id="honors">
         <div class="container">
-            <h2 class="section-title">Honors & Interests</h2>
-            
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <h3>Honors</h3>
-                    <p>Eagle Scout, Triple Crown Award, National Honor Society</p>
+            <div class="section-head reveal">
+                <span class="eyebrow">Honors &amp; Interests</span>
+                <h2 class="section-title">A little more about me</h2>
+            </div>
+            <div class="hi-grid">
+                <div class="hi-card reveal">
+                    <div class="head"><i class="fa-solid fa-trophy"></i><h3>Honors</h3></div>
+                    <div class="hi-list">
+                        <span class="chip"><i class="fa-solid fa-award"></i> Eagle Scout</span>
+                        <span class="chip"><i class="fa-solid fa-mountain-sun"></i> Triple Crown Award</span>
+                        <span class="chip"><i class="fa-solid fa-graduation-cap"></i> National Honor Society</span>
+                    </div>
                 </div>
-                
-                <div class="experience-card">
-                    <h3>Interests</h3>
-                    <p>Fishing, Hunting, Weightlifting, Downhill Snow Skiing, Golfing</p>
+                <div class="hi-card reveal">
+                    <div class="head"><i class="fa-solid fa-compass"></i><h3>Interests</h3></div>
+                    <div class="hi-list">
+                        <span class="chip"><i class="fa-solid fa-fish"></i> Fishing</span>
+                        <span class="chip"><i class="fa-solid fa-crosshairs"></i> Hunting</span>
+                        <span class="chip"><i class="fa-solid fa-dumbbell"></i> Weightlifting</span>
+                        <span class="chip"><i class="fa-solid fa-person-skiing"></i> Snow Skiing</span>
+                        <span class="chip"><i class="fa-solid fa-golf-ball-tee"></i> Golfing</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <footer>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact" id="contact">
         <div class="container">
-            <p>© 2025 Jonathan Dukes. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/jonathan-dukes-b2a425220/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                <a href="jd_resume.pdf" target="_blank"><i class="fas fa-file-alt"></i></a>
+            <div class="section-head center reveal">
+                <span class="eyebrow">Get in Touch</span>
+                <h2 class="section-title">Let's connect</h2>
+                <p class="section-sub">Open to offshore, oil &amp; gas, and ocean engineering opportunities. The best way to reach me is below.</p>
             </div>
-            <p>Download my <a href="jd_resume.pdf" style="color: white; text-decoration: underline;">resume</a></p>
+
+            <div class="contact-grid reveal">
+                <a class="contact-card" href="mailto:JSDukes34@gmail.com">
+                    <div class="ic"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="lbl">Email</div>
+                    <div class="val">JSDukes34@gmail.com</div>
+                </a>
+                <a class="contact-card" href="tel:+12819082042">
+                    <div class="ic"><i class="fa-solid fa-phone"></i></div>
+                    <div class="lbl">Phone</div>
+                    <div class="val">(281) 908-2042</div>
+                </a>
+                <a class="contact-card" href="https://www.linkedin.com/in/jonathan-dukes-b2a425220/" target="_blank" rel="noopener">
+                    <div class="ic"><i class="fa-brands fa-linkedin-in"></i></div>
+                    <div class="lbl">LinkedIn</div>
+                    <div class="val">Jonathan Dukes</div>
+                </a>
+                <a class="contact-card" href="https://www.jonathandukes.info" target="_blank" rel="noopener">
+                    <div class="ic"><i class="fa-solid fa-globe"></i></div>
+                    <div class="lbl">Website</div>
+                    <div class="val">jonathandukes.info</div>
+                </a>
+            </div>
+
+            <div class="contact-actions reveal">
+                <a href="mailto:JSDukes34@gmail.com" class="btn btn-accent"><i class="fa-solid fa-envelope"></i> Email Me</a>
+                <a href="jd_resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost"><i class="fa-solid fa-file-arrow-down"></i> Download Resume</a>
+            </div>
         </div>
-    </footer>
+
+        <footer>
+            <div class="container foot-inner">
+                <p>© 2026 Jonathan Dukes. All rights reserved.</p>
+                <div class="foot-socials">
+                    <a href="https://www.linkedin.com/in/jonathan-dukes-b2a425220/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="mailto:JSDukes34@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="jd_resume.pdf" target="_blank" rel="noopener" aria-label="Resume"><i class="fa-solid fa-file-lines"></i></a>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+    <button class="to-top" id="toTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <script>
+        // Nav background on scroll
+        const nav = document.getElementById('nav');
+        const toTop = document.getElementById('toTop');
+        const onScroll = () => {
+            nav.classList.toggle('scrolled', window.scrollY > 24);
+            toTop.classList.toggle('show', window.scrollY > 520);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // Mobile menu toggle
+        const toggle = document.getElementById('navToggle');
+        const links = document.getElementById('navLinks');
+        toggle.addEventListener('click', () => {
+            const open = document.body.classList.toggle('nav-open');
+            toggle.setAttribute('aria-expanded', open);
+            toggle.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+        });
+        links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            document.body.classList.remove('nav-open');
+            toggle.setAttribute('aria-expanded', false);
+            toggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        }));
+
+        // Back to top
+        toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Hide back-to-top while the footer is on screen (avoids overlapping footer icons)
+        const footerEl = document.querySelector('footer');
+        if (footerEl) {
+            new IntersectionObserver((entries) => {
+                entries.forEach(e => toTop.classList.toggle('at-footer', e.isIntersecting));
+            }, { threshold: 0.05 }).observe(footerEl);
+        }
+
+        // Reveal on scroll
+        const revealIO = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('in'); revealIO.unobserve(e.target); }
+            });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => revealIO.observe(el));
+
+        // Scroll-spy active nav link
+        const navAnchors = [...document.querySelectorAll('.nav-links a:not(.nav-cta)')];
+        const spyTargets = navAnchors
+            .map(a => document.querySelector(a.getAttribute('href')))
+            .filter(Boolean);
+        const spyIO = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    const id = '#' + e.target.id;
+                    navAnchors.forEach(a => a.classList.toggle('active', a.getAttribute('href') === id));
+                }
+            });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        spyTargets.forEach(s => spyIO.observe(s));
+    </script>
 </body>
 </html>
